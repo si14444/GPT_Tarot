@@ -1,3 +1,2 @@
-import React from "./react.svg?react";
-
-export { React };
+import Background from "./gpt_tarot_background.svg?react";
+export { Background };

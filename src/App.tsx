@@ -1,13 +1,15 @@
-import "./App.css";
-import { React } from "./assets";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainPage from "./pages/MainPage";
+import TarotPage from "./pages/TarotPage";
 
 function App() {
   return (
-    <>
-      <div>
-        <React />
-      </div>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/tarot" element={<TarotPage />} />
+      </Routes>
+    </Router>
   );
 }
 
