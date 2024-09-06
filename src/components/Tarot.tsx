@@ -1,7 +1,13 @@
-import React, { useState } from "react";
-import tarotBackground from "../assets/tarot/tarotBackground.png";
+import { useState } from "react";
+import tarotBackground from "../assets/tarot/tarotBackground2.png";
 
-const Tarot = ({ number }: { number: number }) => {
+const Tarot = ({
+  number,
+  setCount,
+}: {
+  number: number;
+  setCount: () => void;
+}) => {
   const [flipped, setFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
@@ -10,17 +16,17 @@ const Tarot = ({ number }: { number: number }) => {
       setIsAnimating(true);
       setFlipped(!flipped);
 
-      // Set a timeout to reset animation state after animation duration
       setTimeout(() => {
         setIsAnimating(false);
-      }, 700); // Match the duration of your transition
+      }, 700);
     }
+    setCount();
   };
 
   return (
     <div
       onClick={handleClick}
-      className={`relative w-28 h-60 cursor-pointer perspective-1000`}
+      className={`relative w-24 h-56 cursor-pointer perspective-1000`}
     >
       <div
         className={`absolute w-full h-full transition-transform duration-700 transform ${

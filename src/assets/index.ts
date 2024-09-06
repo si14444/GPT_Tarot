@@ -1,2 +1,3 @@
 import Background from "./gpt_tarot_background.svg?react";
-export { Background };
+import BackgrountNoHeader from "./background_noHeader.svg?react";
+export { Background, BackgrountNoHeader };
