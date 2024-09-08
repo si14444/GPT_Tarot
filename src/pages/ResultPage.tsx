@@ -1,5 +1,5 @@
 const ResultPage = () => {
-  const testData = import.meta.env.VITE_APP_TEST_DATA;
+  const testData = import.meta.env.VITE_SERVER_URL;
   return <div>{testData}</div>;
 };
 
