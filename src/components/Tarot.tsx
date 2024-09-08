@@ -1,5 +1,7 @@
 import { useState } from "react";
 import tarotBackground from "../assets/tarot/tarotBackground2.png";
+import { tarotImages } from "../assets/constants/tarot";
+import useTarot from "../store/useTarot";
 
 const Tarot = ({
   number,
@@ -11,6 +13,8 @@ const Tarot = ({
   const [flipped, setFlipped] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
+  const { addTarot } = useTarot();
+
   const handleClick = () => {
     if (!isAnimating) {
       setIsAnimating(true);
@@ -20,13 +24,14 @@ const Tarot = ({
         setIsAnimating(false);
       }, 700);
     }
+    addTarot(number);
     setCount();
   };
 
   return (
     <div
       onClick={handleClick}
-      className={`relative w-24 h-56 cursor-pointer perspective-1000`}
+      className="relative w-28 h-56 cursor-pointer perspective-1000"
     >
       <div
         className={`absolute w-full h-full transition-transform duration-700 transform ${
@@ -50,7 +55,11 @@ const Tarot = ({
             flipped ? "opacity-100" : "opacity-0"
           } transition-opacity duration-700`}
         >
-          {number}
+          <img
+            src={tarotImages[number]}
+            alt={`Tarot card number ${number}`}
+            className="w-full h-full rotate-y-180"
+          />
         </div>
       </div>
     </div>

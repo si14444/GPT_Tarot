@@ -18,7 +18,7 @@ const TarotPage = () => {
     setCardCount((prevCount) => prevCount + 1);
     if (cardCount >= 2) {
       setTimeout(() => {
-        navigate("/");
+        navigate("/result");
       }, 1000);
     }
   };
