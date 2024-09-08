@@ -19,7 +19,7 @@ const TarotPage = () => {
     if (cardCount >= 2) {
       setTimeout(() => {
         navigate("/");
-      }, 1500);
+      }, 1000);
     }
   };
 
@@ -28,7 +28,7 @@ const TarotPage = () => {
       <BackgrountNoHeader className="absolute top-0 left-0 w-full h-full object-cover" />
       <div className="flex flex-wrap gap-10 p-4 justify-center items-center">
         {shuffledTarotList.map((tarot) => (
-          <div key={tarot} className="flex-none w-24 h-40 mb-10">
+          <div key={tarot} className="flex-none w-24 h-40 mb-12">
             <Tarot number={tarot} setCount={handleAddCardCount} />
           </div>
         ))}
