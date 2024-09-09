@@ -26,6 +26,9 @@ const TarotPage = () => {
   return (
     <div className="absolute top-0 left-0 flex flex-col justify-center items-center w-screen h-screen">
       <BackgrountNoHeader className="absolute top-0 left-0 w-full h-full object-cover" />
+      <p className="felx text-white text-3xl top-0 z-10">
+        카드를 3장 뽑아주세요
+      </p>
       <div className="flex flex-wrap gap-10 p-4 justify-center items-center">
         {shuffledTarotList.map((tarot) => (
           <div key={tarot} className="flex-none w-24 h-40 mb-12">

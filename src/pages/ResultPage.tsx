@@ -5,7 +5,7 @@ import { tarotImages } from "../constants/tarot";
 import useTarot from "../store/useTarot";
 import useType from "../store/useType";
 import { useCallGPT } from "../hooks/useCallGPT";
-import { PacmanLoader } from "react-spinners";
+import { RingLoader } from "react-spinners";
 
 const ResultPage = () => {
   const [enabled, setEnabled] = useState(false);
@@ -31,10 +31,8 @@ const ResultPage = () => {
       <BackgrountNoHeader className="z-0 absolute top-0 left-0 w-full h-full object-cover" />
       {isLoading ? (
         <>
-          <p className="z-10 text-white font-semibold font-mono text-5xl mb-10">
-            결과 불러오는중
-          </p>
-          <PacmanLoader size={100} color="#399bd2" />
+          <p className="z-10 text-white  text-5xl mb-10">결과 불러오는중</p>
+          <RingLoader size={200} color="#ffffff" />
         </>
       ) : (
         <>
