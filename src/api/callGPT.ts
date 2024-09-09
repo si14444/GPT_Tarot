@@ -19,12 +19,13 @@ export const callGPT = async (
   tarot: number[],
   type: string
 ): Promise<OpenAIResponse | null> => {
+  const apiKey = import.meta.env.VITE_OPENAIAPI;
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${import.meta.env.VITE_OPENAIAPI as string}`,
+        Authorization: `Bearer ${apiKey}`,
       },
       body: JSON.stringify({
         model: "gpt-3.5-turbo",
@@ -35,7 +36,7 @@ export const callGPT = async (
           },
           {
             role: "assistant",
-            content: `연애운을 종합적으로 해석한 결과는 다음과 같습니다.`,
+            content: `${type}을 종합적으로 해석한 결과는 다음과 같습니다.`,
           },
         ],
         temperature: 0.5,
