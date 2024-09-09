@@ -1,14 +1,12 @@
-import useTarot from "../store/useTarot";
-
 interface OpenAIResponse {
   choices: Array<{
     finish_reason: string;
     index: number;
-    logprobs: any; // null 또는 특정 타입을 정의할 수 있습니다
+    logprobs: any;
     message: {
       content: string;
     };
-    refusal: any; // null 또는 특정 타입을 정의할 수 있습니다
+    refusal: any;
     role: string;
   }>;
   created: number;
