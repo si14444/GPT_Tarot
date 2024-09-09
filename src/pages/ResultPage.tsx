@@ -4,16 +4,19 @@ import { BackgrountNoHeader } from "../assets";
 import { tarotImages } from "../assets/constants/tarot";
 import useTarot from "../store/useTarot";
 import { callGPT } from "../api/callGPT";
+import useType from "../store/useType";
 
 const ResultPage = () => {
   const [result, setResult] = useState<string | null>(null); // 상태를 선언
   const { tarot, resetTarot } = useTarot();
+  const { type } = useType();
   const navigate = useNavigate();
 
   // API 호출
   useEffect(() => {
     const fetchData = async () => {
-      const data = await callGPT(tarot);
+      console.log("TEST");
+      const data = await callGPT(tarot, type);
       if (data && data.choices.length > 0) {
         setResult(data.choices[0].message.content);
       }

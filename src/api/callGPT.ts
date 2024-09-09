@@ -18,7 +18,8 @@ interface OpenAIResponse {
 }
 
 export const callGPT = async (
-  tarot: number[]
+  tarot: number[],
+  type: string
 ): Promise<OpenAIResponse | null> => {
   try {
     const response = await fetch("https://api.openai.com/v1/chat/completions", {
@@ -32,11 +33,11 @@ export const callGPT = async (
         messages: [
           {
             role: "user",
-            content: `타로, 연애운, 메이저 아르카나${tarot[0]},메이저 아르카나${tarot[1]},메이저 아르카나${tarot[2]}, 5줄, 카드 하나하나 분석 없이, 종합적으로`,
+            content: `타로, ${type}, 메이저 아르카나${tarot[0]},메이저 아르카나${tarot[1]},메이저 아르카나${tarot[2]}, 5줄 이상, 카드 하나하나 분석 없이, 종합적으로, 카드 번호 읽지 않기`,
           },
           {
             role: "assistant",
-            content: `${tarot[0]},${tarot[1]},${tarot[2]}을 종합적으로 해석한 결과는 다음과 같습니다.`,
+            content: `연애운을 종합적으로 해석한 결과는 다음과 같습니다.`,
           },
         ],
         temperature: 0.5,
