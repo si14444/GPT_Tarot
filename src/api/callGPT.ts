@@ -1,3 +1,5 @@
+import getMajorArcanaName from "../utils/getMajorArcanaName";
+
 interface OpenAIResponse {
   choices: Array<{
     finish_reason: string;
@@ -32,7 +34,13 @@ export const callGPT = async (
         messages: [
           {
             role: "user",
-            content: `타로, ${type}, 메이저 아르카나${tarot[0]},메이저 아르카나${tarot[1]},메이저 아르카나${tarot[2]}, 5줄 이상, 카드 하나하나 분석 없이, 종합적으로, 카드 번호 읽지 않기`,
+            content: `타로, ${type}, 3장, 메이저 아르카나${getMajorArcanaName(
+              tarot[0]
+            )},메이저 아르카나${getMajorArcanaName(
+              tarot[1]
+            )},메이저 아르카나${getMajorArcanaName(
+              tarot[2]
+            )}, 5줄 이상, 카드 하나하나 분석 없이, 종합적으로`,
           },
           {
             role: "assistant",
@@ -56,7 +64,6 @@ export const callGPT = async (
     }
 
     const responseData: OpenAIResponse = await response.json();
-    console.log("data", responseData.choices);
 
     return responseData;
   } catch (error) {

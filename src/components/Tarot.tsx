@@ -1,6 +1,6 @@
 import { useState } from "react";
 import tarotBackground from "../assets/tarot/tarotBackground2.png";
-import { tarotImages } from "../assets/constants/tarot";
+import { tarotImages } from "../constants/tarot";
 import useTarot from "../store/useTarot";
 
 const Tarot = ({

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { BackgrountNoHeader } from "../assets";
-import { tarotImages } from "../assets/constants/tarot";
+import { tarotImages } from "../constants/tarot";
 import useTarot from "../store/useTarot";
 import { callGPT } from "../api/callGPT";
 import useType from "../store/useType";
@@ -15,7 +15,6 @@ const ResultPage = () => {
   // API 호출
   useEffect(() => {
     const fetchData = async () => {
-      console.log("TEST");
       const data = await callGPT(tarot, type);
       if (data && data.choices.length > 0) {
         setResult(data.choices[0].message.content);
