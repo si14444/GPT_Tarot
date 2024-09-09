@@ -9,7 +9,7 @@ const MainPage = () => {
         <TypeButton title={"연애운"} />
         <TypeButton title={"학업운"} />
         <TypeButton title={"금전운"} />
-        <TypeButton title={"연애운"} />
+        <TypeButton title={"오늘의 운세"} />
       </div>
     </div>
   );
